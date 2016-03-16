@@ -21,7 +21,6 @@ Perso::Perso(Race race, Classe classe, string nom, string surnom){
     this->race = race;
     this->classe = classe;
     
-    cout << "* Personnage : " << this->nom << " points_cara = " << points_cara << endl  ; 
     
     switch(race){
         case amphibien:
@@ -259,13 +258,11 @@ Perso::Perso(Race race, Classe classe, string nom, string surnom){
                     not_enought_point=true;
                 }
             }else if(cara_repartition>palier_1 && cara_repartition<=palier_2){
-                if((int)((this->bagarre - 1)/5) < 1){
-                    if(points_cara>=(int)(this->bagarre/6)+1){
-                        points_cara-=(int)(this->bagarre/6)+1;
-                        this->bagarre++;
-                    }else{
-                        not_enought_point=true;
-                    }
+                if(points_cara>=(int)(this->bagarre/6)+1){
+                    points_cara-=(int)(this->bagarre/6)+1;
+                    this->bagarre++;
+                }else{
+                    not_enought_point=true;
                 }
             }else if(cara_repartition>palier_2 && cara_repartition<=palier_3){
                 if(points_cara>=(int)(this->adresse/6)+1){
@@ -312,7 +309,6 @@ Perso::Perso(Race race, Classe classe, string nom, string surnom){
                     if(((int)(*get<0>(i)-1)/5)+1<=points_cara){
                         *get<0>(i)=*get<0>(i)+1;
                         points_cara-=(int)(*get<0>(i)/6)+1;
-                        cout << this->nom << " " << get<2>(i) << ", proba : " << *get<1>(i) << " valeur : " << *get<0>(i) << endl;
                         not_enought_point=false;
                         break;
                     }
@@ -452,13 +448,11 @@ void Perso::level_up(uint nb_niveau){
                         not_enought_point=true;
                     }
                 }else if(cara_repartition>palier_1 && cara_repartition<=palier_2){
-                    if((int)((this->bagarre - 1)/5) < 1){
-                        if(points_cara>=(int)(this->bagarre/6)+1){
-                            points_cara-=(int)(this->bagarre/6)+1;
-                            this->bagarre++;
-                        }else{
-                            not_enought_point=true;
-                        }
+                    if(points_cara>=(int)(this->bagarre/6)+1){
+                        points_cara-=(int)(this->bagarre/6)+1;
+                        this->bagarre++;
+                    }else{
+                        not_enought_point=true;
                     }
                 }else if(cara_repartition>palier_2 && cara_repartition<=palier_3){
                     if(points_cara>=(int)(this->adresse/6)+1){
@@ -505,7 +499,6 @@ void Perso::level_up(uint nb_niveau){
                         if(((int)(*get<0>(i)-1)/5)+1<=points_cara){
                             *get<0>(i)=*get<0>(i)+1;
                             points_cara-=(int)(*get<0>(i)/6)+1;
-                            cout << this->nom << " " << get<2>(i) << ", proba : " << *get<1>(i) << " valeur : " << *get<0>(i) << endl;
                             not_enought_point=false;
                             break;
                         }
